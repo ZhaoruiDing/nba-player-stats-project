@@ -1,0 +1,17 @@
+.main{
+    width: 750px;
+    background-color: #ccc;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px #888;
+    margin: auto;
+    display: flex;
+}
+
+.profile{
+    float: left;
+    width: 200px;
+}
+
+.shotchart{
+    flex: 1 1 auto;
+}
