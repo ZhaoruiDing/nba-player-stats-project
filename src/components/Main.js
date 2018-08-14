@@ -1,27 +1,32 @@
-import React, { Component } from 'react';
-import {Profile} from "./Profile";
-import nba from 'nba';
-import {ShotChart} from "./ShotChart"
-export class Main extends Component{
+import React from 'react';
+import { DataViewContainer } from './DataViewContainer';
+import nba from 'nba'
+import { Profile } from './Profile';
+
+
+export class Main extends React.Component {
   state = {
-    playerId: nba.findPlayer("Chris Paul").playerId,
-    playerInfo: {}
+    playerInfo: {
+      playerId: nba.findPlayer('Stephen Curry').playerId,
+      teamAbbreviation: 'GSW',
+    }
   }
-  componentWillMount(){
-    nba.stats.playerInfo({PlayerID: this.state.playerId}).then((info) => {
+
+  componentDidMount() {
+    nba.stats.playerInfo({ PlayerID: nba.findPlayer('Stephen Curry').playerId }).then((info) => {
       console.log(info);
-      const playerInfo = Object.assign({},info.commonPlayerInfo[0], info.playerHeadlineStats[0]);
+      const playerInfo = Object.assign(info.commonPlayerInfo[0], info.playerHeadlineStats[0]);
       console.log(playerInfo);
-      this.setState({
-        playerInfo: playerInfo
-      });
+      this.setState({ playerInfo });
     });
   }
-  render(){
-    return(
+
+  render() {
+    return (
       <div className="main">
         <Profile playerInfo={this.state.playerInfo}/>
-        <ShotChart playerId={this.state.playerId}/>
-    </div>);
+        <DataViewContainer playerId={this.state.playerInfo.playerId}/>
+      </div>
+    );
   }
 }

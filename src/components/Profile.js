@@ -1,31 +1,35 @@
-import React, {Component} from 'react'
+import React from 'react';
+import { PROFILE_PIC_URL_PREFIX, TEAM_PIC_URL_PREFIX } from '../constants';
 
-export class Profile extends Component{
-  render(){
+export class Profile extends React.Component {
+  render() {
     const {
-      playerName,
-      playerId,
       teamAbbreviation,
       teamCity,
       teamName,
+      playerName,
       height,
       weight,
-      pts,
-      reb,
-      ast,
-      pie
+      playerId,
+      pts, reb, ast, pie,
     } = this.props.playerInfo;
-
-
     return (
       <div className="profile">
-        <div className="player-name">{`${playerName}`}</div>
-        <img className="player-pic" src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${playerId}.png`}/>
+        <div className="profile-entry player-name">{`${playerName}`}</div>
+        <img
+          className="profile-pic"
+          src={`${PROFILE_PIC_URL_PREFIX}/${playerId}.png`}
+          alt="Profile"
+        />
         <div className="profile-entry">
           <div className="profile-entry-left">Team</div>
           <div className="profile-entry-right">{`${teamCity} ${teamName}`}</div>
         </div>
-        <img className="team-pic" src={`https://stats.nba.com/media/img/teams/logos/${teamAbbreviation}_logo.svg`}/>
+        <img
+          className="team-logo"
+          src={`${TEAM_PIC_URL_PREFIX}/${teamAbbreviation}_logo.svg`}
+          alt="Team"
+        />
         <div className="profile-entry">
           <div className="profile-entry-left">Height</div>
           <div className="profile-entry-right">{`${height}`}</div>
