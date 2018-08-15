@@ -1,13 +1,17 @@
 .App-logo {
+    padding-left: 40px;
     height: 35px;
+    float: left;
 }
 
 .App-header {
     background-color: #1D428A;
-    text-align: left;
-    padding-left: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    height: 55px;
     color: white;
-    margin-bottom: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.App-title {
+    font-size: 1.5em;
 }

@@ -44,4 +44,3 @@ export class ShotChart extends React.Component {
     );
   }
 }
-
